@@ -1,24 +1,10 @@
-/*
-  This example requires Tailwind CSS v2.0+ 
-  
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
-*/
+
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { SearchIcon } from '@heroicons/react/solid'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
 import "../index.css"
+
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -26,14 +12,14 @@ function classNames(...classes) {
 
 export default function Example() {
   return (
-    <Disclosure as="nav" className="bg-white shadow">
+    <Disclosure as="nav" className="bg-white shadow-lg">
       {({ open }) => (
         <>
           <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
-            <div className="flex justify-between h-16">
+            <div className="flex justify-between h-20">
               <div className="flex px-2 lg:px-0">
                 <div className="flex-shrink-0 flex items-center">
-                  <a className=" text-indigo-500 text-3xl font-bold mr-52 p-1">
+                  <a href='#' className=" text-indigo-500 mr-20 text-4xl font-bold p-1">
                   SIH-2023
                   </a>
                 </div>
@@ -70,14 +56,14 @@ export default function Example() {
                   <label htmlFor="search" className="sr-only">
                     Search
                   </label>
-                  <div className="relative">
+                  <div className="relative h-12">
                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                      <SearchIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
+                      <SearchIcon className="w-10 text-gray-500" aria-hidden="true" />
                     </div>
                     <input
                       id="search"
                       name="search"
-                      className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                      className="block h-12 text-5xl w-full pl-16 pr-3 py-2 border-2 border-gray-300 rounded-md leading-5 bg-white placeholder:text-2xl placeholder-gray-600 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-2xl"
                       placeholder="Search"
                       type="search"
                     />
@@ -89,9 +75,9 @@ export default function Example() {
                 <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                   <span className="sr-only">Open main menu</span>
                   {open ? (
-                    <XIcon className="block h-6 w-6" aria-hidden="true" />
+                    <XIcon className="block w-10" aria-hidden="true" />
                   ) : (
-                    <MenuIcon className="block h-6 w-6" aria-hidden="true" />
+                    <MenuIcon className="block w-10" aria-hidden="true" />
                   )}
                 </Disclosure.Button>
               </div>
@@ -165,7 +151,7 @@ export default function Example() {
 
           <Disclosure.Panel className="lg:hidden">
             <div className="pt-2 pb-3 space-y-1">
-              {/* Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800" */}
+              
               <Disclosure.Button
                 as="a"
                 href="#"
