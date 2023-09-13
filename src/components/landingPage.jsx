@@ -1,4 +1,4 @@
-
+import { useNavigate } from 'react-router-dom'
 import { Fragment } from 'react'
 import { Popover, Transition } from '@headlessui/react'
 import {
@@ -183,6 +183,7 @@ function classNames(...classes) {
 }
 
 export default function Example() {
+  const navigate = useNavigate();
   return (
     <div className="bg-white">
       <header>
@@ -259,7 +260,7 @@ export default function Example() {
                 )}
               </Popover>
 
-              <a href='/home' className="text-base font-medium text-gray-500 hover:text-gray-900">
+              <a href='' onClick={()=>navigate('/home')} className="text-base font-medium text-gray-500 hover:text-gray-900">
                 Home
               </a>
               <a href="" className="text-base font-medium text-gray-500 hover:text-gray-900">
