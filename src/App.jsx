@@ -1,14 +1,21 @@
 import Navbar from './components/ResponsiveAppBar';
 import Home from './components/Home';
 import LP from './components/landingPage';
-import Sign from './components/signin'
+import SignIn from './components/signin';
+import SignUp from './components/signup';
+import {BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import "./index.css"
 
 function App() {
   return (
-    <>
-    <LP />
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<LP />} />
+        <Route path="/signin" element={<SignIn />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/home" element={<Home />} />
+      </Routes>
+    </Router>
   )
 }
 
