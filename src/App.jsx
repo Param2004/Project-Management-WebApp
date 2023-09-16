@@ -1,4 +1,4 @@
-import Home from './components/home';
+import Home from './components/Home';
 import LP from './components/landingPage';
 import SignIn from './components/signin';
 import SignUp from './components/signup';
