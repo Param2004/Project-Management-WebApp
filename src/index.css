@@ -30,6 +30,6 @@
   }
   
   ::-webkit-scrollbar-thumb {
-    @apply bg-gradient-to-b from-purple-600 to-blue-800
+    @apply bg-gradient-to-b from-purple-400 to-blue-400
     rounded-lg;
   }

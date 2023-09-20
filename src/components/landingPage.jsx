@@ -184,7 +184,7 @@ function classNames(...classes) {
 
 export default function Example() {
   return (
-    <div className="bg-white">
+    <div className="bg-white dark:bg-black">
       <header className='sticky top-0 z-10'>
         <Popover className="relative bg-white dark:bg-black">
           <div className="flex justify-between items-center max-w-7xl mx-auto px-4 py-2 sm:px-6 md:justify-start md:space-x-10 lg:px-8">
@@ -194,7 +194,7 @@ export default function Example() {
               </a>
             </div>
             <div className="-mr-2 -my-2 md:hidden">
-              <Popover.Button className="bg-transparent rounded-md p-2 inline-flex items-center justify-center text-gray-500 hover:text-gray-800 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+              <Popover.Button className="bg-transparent rounded-md p-4 inline-flex items-center justify-center text-gray-500 hover:text-gray-800 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                 <span className="sr-only">Open menu</span>
                 <MenuIcon className="h-8 w-8" aria-hidden="true" />
               </Popover.Button>
@@ -205,8 +205,8 @@ export default function Example() {
                   <>
                     <Popover.Button
                       className={classNames(
-                        open ? 'text-gray-900' : 'text-gray-500',
-                        'group bg-transparent rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
+                        open ? 'text-indigo-500' : 'text-gray-500',
+                        'group bg-transparent rounded-md inline-flex items-center text-base px-4 font-medium hover:text-indigo-500 focus:outline-none focus:ring focus:ring-offset focus:ring-indigo-500'
                       )}
                     >
                       <span>Help</span>
@@ -254,13 +254,13 @@ export default function Example() {
                 )}
               </Popover>
 
-              <a href='/home' className="text-base font-medium text-gray-500 hover:text-gray-900">
+              <a href='/home' className="text-base font-medium text-gray-500 hover:text-indigo-500">
                 Home
               </a>
-              <a href="" className="text-base font-medium text-gray-500 hover:text-gray-900">
+              <a href="" className="text-base font-medium text-gray-500 hover:text-indigo-500">
                 Dashboard
               </a>
-              <a href="" className="text-base font-medium text-gray-500 hover:text-gray-900">
+              <a href="" className="text-base font-medium text-gray-500 hover:text-indigo-500">
                 About Us
               </a>
             </Popover.Group>
@@ -268,7 +268,7 @@ export default function Example() {
               <TB />
             </div>
             <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-              <a href='/signin' className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
+              <a href='/signin' className="whitespace-nowrap text-base font-bold text-gray-600 hover:text-purple-800">
                 Sign in
               </a>
               <a
@@ -360,7 +360,7 @@ export default function Example() {
       <main>
         {/* Hero section */}
         <div className="relative">
-          <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gray-100" />
+          <div className="absolute dark:bg-black inset-x-0 bottom-0 h-1/2 bg-gray-100" />
           <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div className="relative shadow-xl sm:rounded-2xl sm:overflow-hidden">
               <div className="absolute inset-0">
@@ -402,7 +402,7 @@ export default function Example() {
         </div>
 
         {/* Logo Cloud */}
-        <div className="bg-gray-100">
+        <div className="bg-gray-100 dark:bg-black">
           <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
             <p className="text-center text-sm font-semibold uppercase text-gray-500 tracking-wide">
               Trusted by over 5 very average small businesses
@@ -575,7 +575,7 @@ export default function Example() {
         </div>
 
         {/* Stats section */}
-        <div className="relative bg-gray-900">
+        <div className="relative bg-gray-900 dark:bg-black">
           <div className="h-80 absolute inset-x-0 bottom-0 xl:top-0 xl:h-full">
             <div className="h-full w-full xl:grid xl:grid-cols-2">
               <div className="h-full xl:relative xl:col-start-2">
@@ -621,7 +621,7 @@ export default function Example() {
         </div>
 
         {/* CTA Section */}
-        <div className="bg-white">
+        <div className="bg-white dark:bg-black ">
           <div className="max-w-4xl mx-auto py-16 px-4 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8 lg:flex lg:items-center lg:justify-between">
             <h2 className="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
               <span className="block">Ready to get started?</span>
@@ -647,7 +647,7 @@ export default function Example() {
         </div>
       </main>
 
-      <footer className="bg-gray-50" aria-labelledby="footer-heading">
+      <footer className="bg-gray-50  dark:bg-black" aria-labelledby="footer-heading">
         <h2 id="footer-heading" className="sr-only">
           Footer
         </h2>
