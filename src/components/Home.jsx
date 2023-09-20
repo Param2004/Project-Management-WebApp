@@ -638,7 +638,7 @@ export default function Example() {
               <div className="px-4 sm:px-6">
                 <h2 className="text-gray-500 text-xs font-medium uppercase tracking-wide">Projects</h2>
               </div>
-              <ul role="list" className="mt-3 border-t border-gray-200 divide-y divide-gray-100">
+              {/* <ul role="list" className="mt-3 border-t border-gray-200 divide-y divide-gray-100">
                 {projects.map((project) => (
                   <li key={project.id}>
                     <a href="#" className="group flex items-center justify-between px-4 py-4 hover:bg-gray-50 sm:px-6">
@@ -658,11 +658,11 @@ export default function Example() {
                     </a>
                   </li>
                 ))}
-              </ul>
+              </ul> */}
             </div>
 
             {/* Projects table (small breakpoint and up) */}
-            <div className="hidden mt-8 sm:block">
+            <div className=" mt-8 sm:block">
               <div className="align-middle inline-block min-w-full border-b border-gray-200">
                <PROJECT />
                <PROJECT />
