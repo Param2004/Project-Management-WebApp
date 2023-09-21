@@ -1,22 +1,20 @@
+import TB from './themeBtn';
 
 export default function Example() {
     return (
       <>
-        <div className="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+        <div className="w-screen h-screen dark:bg-black min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
           <div className="sm:mx-auto sm:w-full sm:max-w-md">
-            <img
-              className="mx-auto h-12 w-auto"
-              src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
-              alt="Workflow"
-            />
-            <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Register an account</h2>
+            <h2 className="mt-6 text-center dark:text-white text-3xl font-extrabold text-gray-900">Register an account</h2>
           </div>
-  
           <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-            <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+          <div className='flex justify-center'>
+            <TB />
+          </div>
+            <div className="bg-white dark:bg-black py-8 px-4 shadow sm:rounded-lg sm:px-10">
               <form className="space-y-6" action="#" method="POST">
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                  <label htmlFor="email" className="block text-sm font-medium dark:text-gray-300 text-gray-700">
                     Email address
                   </label>
                   <div className="mt-1">
@@ -32,7 +30,7 @@ export default function Example() {
                 </div>
   
                 <div>
-                  <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+                  <label htmlFor="password" className="block text-sm font-medium dark:text-gray-300 text-gray-700">
                     Password
                   </label>
                   <div className="mt-1">
@@ -48,7 +46,7 @@ export default function Example() {
                 </div>
 
                 <div>
-                  <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+                  <label htmlFor="password" className="block text-sm font-medium dark:text-gray-300 text-gray-700">
                     Confirm Password
                   </label>
                   <div className="mt-1">
@@ -71,7 +69,7 @@ export default function Example() {
                       type="checkbox"
                       className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
                     />
-                    <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900">
+                    <label htmlFor="remember-me" className="ml-2 block text-sm dark:text-gray-300 text-gray-900">
                       Remember me
                     </label>
                   </div>
@@ -93,7 +91,7 @@ export default function Example() {
                     <div className="w-full border-t border-gray-300" />
                   </div>
                   <div className="relative flex justify-center text-sm">
-                    <span className="px-2 bg-white text-gray-500">Or continue with</span>
+                    <span className="px-2 dark:bg-black bg-white dark:text-gray-300 text-gray-500">Or continue with</span>
                   </div>
                 </div>
   
@@ -101,7 +99,7 @@ export default function Example() {
                   <div>
                     <a
                       href="#"
-                      className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
+                      className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white dark:bg-black text-sm font-medium text-gray-500 hover:bg-gray-50"
                     >
                       <span className="sr-only">Sign in with Facebook</span>
                       <svg className="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
@@ -117,7 +115,7 @@ export default function Example() {
                   <div>
                     <a
                       href="#"
-                      className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
+                      className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white dark:bg-black text-sm font-medium text-gray-500 hover:bg-gray-50"
                     >
                       <span className="sr-only">Sign in with Twitter</span>
                       <svg className="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
@@ -129,7 +127,7 @@ export default function Example() {
                   <div>
                     <a
                       href="#"
-                      className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
+                      className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white dark:bg-black text-sm font-medium text-gray-500 hover:bg-gray-50"
                     >
                       <span className="sr-only">Sign in with GitHub</span>
                       <svg className="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">

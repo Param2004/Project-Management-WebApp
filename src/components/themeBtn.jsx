@@ -9,9 +9,9 @@ const ThemeIcon = () => {
     return (
       <span onClick={handleMode}>
         {darkTheme ? (
-          <FaSun size='26' className='top-navigation-icon text-orange-400' />
+          <FaSun size='20' className='top-navigation-icon text-orange-400' />
          ) : (
-          <FaMoon size='26' className='top-navigation-icon text-purple-800' />
+          <FaMoon size='20' className='top-navigation-icon text-purple-800' />
          )
         }
       </span>

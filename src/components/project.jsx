@@ -1,4 +1,8 @@
-
+function taging(post){
+return <div className="text-xs my-1 mx-1 w-fit flex flex-row font-bold leading-sm uppercase px-3 bg-blue-200 text-blue-700 rounded-full">
+{post}
+</div>
+}
 const posts = [
     {
       title: 'Boost your conversion rate',
@@ -17,6 +21,7 @@ const posts = [
         imageUrl:
           'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
       },
+      tags:["python","ml","tensorflow"]
     },
     {
       title: 'How to use search engine optimization to drive sales',
@@ -35,6 +40,7 @@ const posts = [
         imageUrl:
           'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
       },
+      tags:["python","ml","tensorflow"]
     },
     {
       title: 'Improve your customer experience',
@@ -53,6 +59,7 @@ const posts = [
         imageUrl:
           'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
       },
+      tags:["python","ml","tensorflow"]
     },
   ]
   
@@ -80,7 +87,11 @@ const posts = [
                       <p className="text-xl font-semibold text-gray-900">{post.title}</p>
                       <p className="mt-3 text-base text-gray-500">{post.description}</p>
                     </a>
-                  </div>
+                    </div>
+                    <div className="flex flex-row">
+                    {post.tags.map(taging)}
+                    </div>
+                  
                   <div className="mt-6 flex items-center">
                     <div className="flex-shrink-0">
                       <a href={post.author.href}>

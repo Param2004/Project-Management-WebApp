@@ -1,61 +1,14 @@
-
 import { Fragment, useState } from 'react'
 import { Dialog, Menu, Transition } from '@headlessui/react'
-import { HomeIcon, MenuAlt1Icon, ViewListIcon, XIcon } from '@heroicons/react/outline'
+import { HomeIcon, MenuAlt1Icon, XIcon } from '@heroicons/react/outline'
 import { ChevronRightIcon, SearchIcon, SelectorIcon } from '@heroicons/react/solid'
 import { BsPinAngleFill } from 'react-icons/bs';
 import PROJECT from './project';
 
 const navigation = [
   { name: 'Home', href: '#', icon: HomeIcon, current: true },
-  { name: 'My tasks', href: '#', icon: ViewListIcon, current: false },
-  { name: 'Recent', href: '#', icon: BsPinAngleFill, current: false },
+  { name: 'College Projects', href: '#', icon: BsPinAngleFill, current: false },
 ]
-const teams = [
-  { name: 'Engineering', href: '#', bgColorClass: 'bg-indigo-500' },
-  { name: 'Human Resources', href: '#', bgColorClass: 'bg-green-500' },
-  { name: 'Customer Success', href: '#', bgColorClass: 'bg-yellow-500' },
-]
-const projects = [
-  {
-    id: 1,
-    title: 'GraphQL API',
-    initials: 'GA',
-    team: 'Engineering',
-    members: [
-      {
-        name: 'Dries Vincent',
-        handle: 'driesvincent',
-        imageUrl:
-          'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-      },
-      {
-        name: 'Lindsay Walton',
-        handle: 'lindsaywalton',
-        imageUrl:
-          'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-      },
-      {
-        name: 'Courtney Henry',
-        handle: 'courtneyhenry',
-        imageUrl:
-          'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-      },
-      {
-        name: 'Tom Cook',
-        handle: 'tomcook',
-        imageUrl:
-          'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-      },
-    ],
-    totalMembers: 12,
-    lastUpdated: 'March 17, 2020',
-    pinned: true,
-    bgColorClass: 'bg-pink-600',
-  },
-  // More projects...
-]
-const pinnedProjects = projects.filter((project) => project.pinned)
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -110,13 +63,6 @@ export default function Example() {
                     </button>
                   </div>
                 </Transition.Child>
-                <div className="flex-shrink-0 flex items-center px-4">
-                  <img
-                    className="h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/workflow-logo-purple-500-mark-gray-700-text.svg"
-                    alt="Workflow"
-                  />
-                </div>
                 <div className="mt-5 flex-1 h-0 overflow-y-auto">
                   <nav className="px-2">
                     <div className="space-y-1">
@@ -143,29 +89,6 @@ export default function Example() {
                         </a>
                       ))}
                     </div>
-                    <div className="mt-8">
-                      <h3
-                        className="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider"
-                        id="mobile-teams-headline"
-                      >
-                        Teams
-                      </h3>
-                      <div className="mt-1 space-y-1" role="group" aria-labelledby="mobile-teams-headline">
-                        {teams.map((team) => (
-                          <a
-                            key={team.name}
-                            href={team.href}
-                            className="group flex items-center px-3 py-2 text-base leading-5 font-medium text-gray-600 rounded-md hover:text-gray-900 hover:bg-gray-50"
-                          >
-                            <span
-                              className={classNames(team.bgColorClass, 'w-2.5 h-2.5 mr-4 rounded-full')}
-                              aria-hidden="true"
-                            />
-                            <span className="truncate">{team.name}</span>
-                          </a>
-                        ))}
-                      </div>
-                    </div>
                   </nav>
                 </div>
               </div>
@@ -178,13 +101,6 @@ export default function Example() {
 
         {/* Static sidebar for desktop */}
         <div className="hidden lg:flex lg:flex-col lg:w-64 lg:fixed lg:inset-y-0 lg:border-r lg:border-gray-200 lg:pt-5 lg:pb-4 lg:bg-gray-100">
-          <div className="flex items-center flex-shrink-0 px-6">
-            <img
-              className="h-8 w-auto"
-              src="https://tailwindui.com/img/logos/workflow-logo-purple-500-mark-gray-700-text.svg"
-              alt="Workflow"
-            />
-          </div>
           {/* Sidebar component, swap this element with another sidebar if you like */}
           <div className="mt-6 h-0 flex-1 flex flex-col overflow-y-auto">
             {/* User account dropdown */}
@@ -234,19 +150,7 @@ export default function Example() {
                         </a>
                       )}
                     </Menu.Item>
-                    <Menu.Item>
-                      {({ active }) => (
-                        <a
-                          href="#"
-                          className={classNames(
-                            active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                            'block px-4 py-2 text-sm'
-                          )}
-                        >
-                          Settings
-                        </a>
-                      )}
-                    </Menu.Item>
+                    
                     <Menu.Item>
                       {({ active }) => (
                         <a
@@ -261,34 +165,7 @@ export default function Example() {
                       )}
                     </Menu.Item>
                   </div>
-                  <div className="py-1">
-                    <Menu.Item>
-                      {({ active }) => (
-                        <a
-                          href="#"
-                          className={classNames(
-                            active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                            'block px-4 py-2 text-sm'
-                          )}
-                        >
-                          Get desktop app
-                        </a>
-                      )}
-                    </Menu.Item>
-                    <Menu.Item>
-                      {({ active }) => (
-                        <a
-                          href="#"
-                          className={classNames(
-                            active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                            'block px-4 py-2 text-sm'
-                          )}
-                        >
-                          Support
-                        </a>
-                      )}
-                    </Menu.Item>
-                  </div>
+                  
                   <div className="py-1">
                     <Menu.Item>
                       {({ active }) => (
@@ -307,27 +184,6 @@ export default function Example() {
                 </Menu.Items>
               </Transition>
             </Menu>
-            {/* Sidebar Search */}
-            <div className="px-3 mt-5">
-              <label htmlFor="search" className="sr-only">
-                Search
-              </label>
-              <div className="mt-1 relative rounded-md shadow-sm">
-                <div
-                  className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
-                  aria-hidden="true"
-                >
-                  <SearchIcon className="mr-3 h-4 w-4 text-gray-400" aria-hidden="true" />
-                </div>
-                <input
-                  type="text"
-                  name="search"
-                  id="search"
-                  className="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-9 sm:text-sm border-gray-300 rounded-md"
-                  placeholder="Search"
-                />
-              </div>
-            </div>
             {/* Navigation */}
             <nav className="px-3 mt-6">
               <div className="space-y-1">
@@ -351,30 +207,6 @@ export default function Example() {
                     {item.name}
                   </a>
                 ))}
-              </div>
-              <div className="mt-8">
-                {/* Secondary navigation */}
-                <h3
-                  className="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider"
-                  id="desktop-teams-headline"
-                >
-                  Teams
-                </h3>
-                <div className="mt-1 space-y-1" role="group" aria-labelledby="desktop-teams-headline">
-                  {teams.map((team) => (
-                    <a
-                      key={team.name}
-                      href={team.href}
-                      className="group flex items-center px-3 py-2 text-sm font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50"
-                    >
-                      <span
-                        className={classNames(team.bgColorClass, 'w-2.5 h-2.5 mr-4 rounded-full')}
-                        aria-hidden="true"
-                      />
-                      <span className="truncate">{team.name}</span>
-                    </a>
-                  ))}
-                </div>
               </div>
             </nav>
           </div>
@@ -448,19 +280,7 @@ export default function Example() {
                             </a>
                           )}
                         </Menu.Item>
-                        <Menu.Item>
-                          {({ active }) => (
-                            <a
-                              href="#"
-                              className={classNames(
-                                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                                'block px-4 py-2 text-sm'
-                              )}
-                            >
-                              Settings
-                            </a>
-                          )}
-                        </Menu.Item>
+                        
                         <Menu.Item>
                           {({ active }) => (
                             <a
@@ -475,34 +295,7 @@ export default function Example() {
                           )}
                         </Menu.Item>
                       </div>
-                      <div className="py-1">
-                        <Menu.Item>
-                          {({ active }) => (
-                            <a
-                              href="#"
-                              className={classNames(
-                                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                                'block px-4 py-2 text-sm'
-                              )}
-                            >
-                              Get desktop app
-                            </a>
-                          )}
-                        </Menu.Item>
-                        <Menu.Item>
-                          {({ active }) => (
-                            <a
-                              href="#"
-                              className={classNames(
-                                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                                'block px-4 py-2 text-sm'
-                              )}
-                            >
-                              Support
-                            </a>
-                          )}
-                        </Menu.Item>
-                      </div>
+                      
                       <div className="py-1">
                         <Menu.Item>
                           {({ active }) => (
@@ -524,7 +317,7 @@ export default function Example() {
               </div>
             </div>
           </div>
-          <main className="flex-1">
+          <main className="flex-1 bg-white">
             {/* Page title & actions */}
             <div className="border-b border-gray-200 px-4 py-4 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-8">
               <div className="flex-1 min-w-0">
@@ -634,7 +427,7 @@ export default function Example() {
             </div> */}
 
             {/* Projects list (only on smallest breakpoint) */}
-            <div className="mt-10 sm:hidden">
+            <div className="mt-4">
               <div className="px-4 sm:px-6">
                 <h2 className="text-gray-500 text-xs font-medium uppercase tracking-wide">Projects</h2>
               </div>
@@ -662,8 +455,29 @@ export default function Example() {
             </div>
 
             {/* Projects table (small breakpoint and up) */}
-            <div className=" mt-8 sm:block">
+            <div className="sm:block">
               <div className="align-middle inline-block min-w-full border-b border-gray-200">
+            {/* Sidebar Search */}
+            <div className="px-3 mt-5">
+              <label htmlFor="search" className="sr-only">
+                Search
+              </label>
+              <div className="mt-1 relative rounded-md shadow-sm">
+                <div
+                  className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
+                  aria-hidden="true"
+                >
+                  <SearchIcon className="mr-3 h-4 w-4 text-gray-400" aria-hidden="true" />
+                </div>
+                <input
+                  type="text"
+                  name="search"
+                  id="search"
+                  className="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-9 sm:text-sm border-gray-300 rounded-md"
+                  placeholder="Search"
+                />
+              </div>
+            </div>
                <PROJECT />
                <PROJECT />
                <PROJECT />

@@ -3,12 +3,14 @@ import TB from './themeBtn';
 export default function Example() {
     return (
       <>
-        <div className="w-screen h-screen dark:bg-black flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+        <div className="w-screen h-screen dark:bg-black flex flex-col justify-center">
           <div className="sm:mx-auto sm:w-full sm:max-w-md">
             <h2 className="mt-6 text-center dark:text-white text-3xl font-extrabold text-gray-900">Sign in to your account</h2>
           </div>
-  
           <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+          <div className='flex justify-center'>
+            <TB />
+          </div>
             <div className="bg-white dark:bg-black py-8 px-4 shadow-2xl sm:rounded-lg sm:px-10">
               <form className="space-y-6" action="#" method="POST">
                 <div>
@@ -87,7 +89,7 @@ export default function Example() {
                   <div>
                     <a
                       href="#"
-                      className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
+                      className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white dark:bg-black text-sm font-medium text-gray-500 hover:bg-gray-50"
                     >
                       <span className="sr-only">Sign in with Facebook</span>
                       <svg className="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
@@ -103,7 +105,7 @@ export default function Example() {
                   <div>
                     <a
                       href="#"
-                      className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
+                      className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white dark:bg-black text-sm font-medium text-gray-500 hover:bg-gray-50"
                     >
                       <span className="sr-only">Sign in with Twitter</span>
                       <svg className="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
@@ -115,7 +117,7 @@ export default function Example() {
                   <div>
                     <a
                       href="#"
-                      className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
+                      className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white dark:bg-black text-sm font-medium text-gray-500 hover:bg-gray-50"
                     >
                       <span className="sr-only">Sign in with GitHub</span>
                       <svg className="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
@@ -130,9 +132,6 @@ export default function Example() {
                 </div>
               </div>
             </div>
-          </div>
-          <div className='flex flex-row-reverse'>
-            <TB />
           </div>
         </div>
       </>
