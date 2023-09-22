@@ -5,6 +5,7 @@ import { HomeIcon, MenuAlt1Icon, ViewListIcon, XIcon } from '@heroicons/react/ou
 import { ChevronRightIcon, SearchIcon, SelectorIcon } from '@heroicons/react/solid'
 import { BsPinAngleFill } from 'react-icons/bs';
 import PROJECT from './project';
+import { useAuth } from '../context/AuthContext'
 
 const navigation = [
   { name: 'Home', href: '#', icon: HomeIcon, current: true },
@@ -63,6 +64,9 @@ function classNames(...classes) {
 
 export default function Example() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
+
+  const {user} = useAuth()
+  console.log("user is", user)
 
   return (
     <>

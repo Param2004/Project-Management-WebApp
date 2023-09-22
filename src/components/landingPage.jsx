@@ -18,6 +18,8 @@ import {
 } from '@heroicons/react/outline'
 import { ChevronDownIcon } from '@heroicons/react/solid'
 import TB from './themeBtn'
+import { Link } from 'react-router-dom';
+
 
 const solutions = [
   {
@@ -254,9 +256,12 @@ export default function Example() {
                 )}
               </Popover>
 
-              <a href='/home' className="text-base font-medium text-gray-500 hover:text-indigo-500">
+              {/* <a href='/home' className="text-base font-medium text-gray-500 hover:text-indigo-500">
                 Home
-              </a>
+              </a> */}
+
+              <Link to="/home" className="text-base font-medium text-gray-500 hover:text-indigo-500">Home</Link>
+
               <a href="" className="text-base font-medium text-gray-500 hover:text-indigo-500">
                 Dashboard
               </a>
