@@ -125,7 +125,7 @@ export default function Example() {
               <Link to='/signin' className="whitespace-nowrap text-base font-bold text-gray-600 hover:text-purple-800">
                 Sign in
               </Link>
-              <Link>
+              <Link
                 href='/signup'
                 className="ml-8 whitespace-nowrap inline-flex items-center justify-center bg-gradient-to-r from-purple-600 to-indigo-600 bg-origin-border px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white hover:from-purple-700 hover:to-indigo-700">
                 Sign up
