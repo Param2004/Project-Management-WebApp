@@ -1,14 +1,13 @@
-import { Link } from 'react-router-dom'
+
 import { Fragment, useState } from 'react'
 import { Dialog, Menu, Transition } from '@headlessui/react'
 import { HomeIcon, MenuAlt1Icon, XIcon } from '@heroicons/react/outline'
 import { SearchIcon, SelectorIcon } from '@heroicons/react/solid'
 import { BsPinAngleFill } from 'react-icons/bs';
-import PROJECT from './project';
 
 const navigation = [
-  { name: 'Home', to: '/user-dashboard', icon: HomeIcon, current: true },
-  { name: 'Pinned Projects', to: '/pinned', icon: BsPinAngleFill, current: false },
+  { name: 'Home', href: '#', icon: HomeIcon, current: true },
+  { name: 'Pinned Projects', href: '#', icon: BsPinAngleFill, current: false },
 ]
 
 function classNames(...classes) {
@@ -22,7 +21,7 @@ export default function Example() {
     <>
       <div className="min-h-full">
         <Transition.Root show={sidebarOpen} as={Fragment}>
-          <Dialog as="div" className="fixed inset-0 flex z-40 lg:hidden" onClose={setSidebarOpen}>
+          <Dialog as="div" className="fixed inset-0 z-40 flex lg:hidden" onClose={setSidebarOpen}>
             <Transition.Child
               as={Fragment}
               enter="transition-opacity ease-linear duration-300"
@@ -105,7 +104,7 @@ export default function Example() {
           {/* Sidebar component, swap this element with another sidebar if you like */}
           <div className="mt-6 h-0 flex-1 flex flex-col overflow-y-auto">
             {/* User account dropdown */}
-            <Menu as="div" className="px-3 relative mt-4 inline-block text-left">
+            <Menu as="div" className="px-3 mt-4 relative inline-block text-left">
               <div>
                 <Menu.Button className="group w-full bg-gray-100 rounded-md px-3.5 py-2 text-sm text-left font-medium text-gray-700 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-purple-500">
                   <span className="flex w-full justify-between items-center">
@@ -140,36 +139,43 @@ export default function Example() {
                   <div className="py-1">
                     <Menu.Item>
                       {({ active }) => (
-                        <Link
-                          to="/profile"
+                        <a
+                          href="#"
                           className={classNames(
                             active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                             'block px-4 py-2 text-sm'
                           )}
                         >
                           View profile
-                        </Link>
+                        </a>
                       )}
                     </Menu.Item>
-                    
-                   
-                  </div>
-                  <div className="py-1">
-                    
-                   
+                    <Menu.Item>
+                      {({ active }) => (
+                        <a
+                          href="#"
+                          className={classNames(
+                            active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                            'block px-4 py-2 text-sm'
+                          )}
+                        >
+                          Notifications
+                        </a>
+                      )}
+                    </Menu.Item>
                   </div>
                   <div className="py-1">
                     <Menu.Item>
                       {({ active }) => (
-                        <Link
-                          to="/"
+                        <a
+                          href="#"
                           className={classNames(
                             active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                             'block px-4 py-2 text-sm'
                           )}
                         >
                           Logout
-                        </Link>
+                        </a>
                       )}
                     </Menu.Item>
                   </div>
@@ -180,9 +186,9 @@ export default function Example() {
             <nav className="px-3 mt-6">
               <div className="space-y-1">
                 {navigation.map((item) => (
-                  <Link
+                  <a
                     key={item.name}
-                    to={item.to}
+                    href={item.href}
                     className={classNames(
                       item.current ? 'bg-gray-200 text-gray-900' : 'text-gray-700 hover:text-gray-900 hover:bg-gray-50',
                       'group flex items-center px-2 py-2 text-sm font-medium rounded-md'
@@ -197,7 +203,7 @@ export default function Example() {
                       aria-hidden="true"
                     />
                     {item.name}
-                  </Link>
+                  </a>
                 ))}
               </div>
             </nav>
@@ -261,36 +267,43 @@ export default function Example() {
                       <div className="py-1">
                         <Menu.Item>
                           {({ active }) => (
-                            <Link
-                              to="/profile"
+                            <a
+                              href="#"
                               className={classNames(
                                 active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                                 'block px-4 py-2 text-sm'
                               )}
                             >
                               View profile
-                            </Link>
+                            </a>
                           )}
                         </Menu.Item>
-                        
-                        
-                      </div>
-                      <div className="py-1">
-                        
-                        
+                        <Menu.Item>
+                          {({ active }) => (
+                            <a
+                              href="#"
+                              className={classNames(
+                                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                                'block px-4 py-2 text-sm'
+                              )}
+                            >
+                              Notifications
+                            </a>
+                          )}
+                        </Menu.Item>
                       </div>
                       <div className="py-1">
                         <Menu.Item>
                           {({ active }) => (
-                            <Link
-                              to="/"
+                            <a
+                              href="#"
                               className={classNames(
                                 active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                                 'block px-4 py-2 text-sm'
                               )}
                             >
                               Logout
-                            </Link>
+                            </a>
                           )}
                         </Menu.Item>
                       </div>
@@ -300,155 +313,6 @@ export default function Example() {
               </div>
             </div>
           </div>
-          <main className="flex-1 bg-white">
-            {/* Page title & actions */}
-            
-            {/* Pinned projects */}
-            {/* <div className="px-4 mt-6 sm:px-6 lg:px-8">
-              <h2 className="text-gray-500 text-xs font-medium uppercase tracking-wide">Pinned Projects</h2>
-              <ul role="list" className="grid grid-cols-1 gap-4 sm:gap-6 sm:grid-cols-2 xl:grid-cols-4 mt-3">
-                {pinnedProjects.map((project) => (
-                  <li key={project.id} className="relative col-span-1 flex shadow-sm rounded-md">
-                    <div
-                      className={classNames(
-                        project.bgColorClass,
-                        'flex-shrink-0 flex items-center justify-center w-16 text-white text-sm font-medium rounded-l-md'
-                      )}
-                    >
-                      {project.initials}
-                    </div>
-                    <div className="flex-1 flex items-center justify-between border-t border-r border-b border-gray-200 bg-white rounded-r-md truncate">
-                      <div className="flex-1 px-4 py-2 text-sm truncate">
-                        <a href="#" className="text-gray-900 font-medium hover:text-gray-600">
-                          {project.title}
-                        </a>
-                        <p className="text-gray-500">{project.totalMembers} Members</p>
-                      </div>
-                      <Menu as="div" className="flex-shrink-0 pr-2">
-                        <Menu.Button className="w-8 h-8 bg-white inline-flex items-center justify-center text-gray-400 rounded-full hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500">
-                          <span className="sr-only">Open options</span>
-                          <DotsVerticalIcon className="w-5 h-5" aria-hidden="true" />
-                        </Menu.Button>
-                        <Transition
-                          as={Fragment}
-                          enter="transition ease-out duration-100"
-                          enterFrom="transform opacity-0 scale-95"
-                          enterTo="transform opacity-100 scale-100"
-                          leave="transition ease-in duration-75"
-                          leaveFrom="transform opacity-100 scale-100"
-                          leaveTo="transform opacity-0 scale-95"
-                        >
-                          <Menu.Items className="z-10 mx-3 origin-top-right absolute right-10 top-3 w-48 mt-1 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-200 focus:outline-none">
-                            <div className="py-1">
-                              <Menu.Item>
-                                {({ active }) => (
-                                  <a
-                                    href="#"
-                                    className={classNames(
-                                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                                      'block px-4 py-2 text-sm'
-                                    )}
-                                  >
-                                    View
-                                  </a>
-                                )}
-                              </Menu.Item>
-                            </div>
-                            <div className="py-1">
-                              <Menu.Item>
-                                {({ active }) => (
-                                  <a
-                                    href="#"
-                                    className={classNames(
-                                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                                      'block px-4 py-2 text-sm'
-                                    )}
-                                  >
-                                    Removed from pinned
-                                  </a>
-                                )}
-                              </Menu.Item>
-                              <Menu.Item>
-                                {({ active }) => (
-                                  <a
-                                    href="#"
-                                    className={classNames(
-                                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                                      'block px-4 py-2 text-sm'
-                                    )}
-                                  >
-                                    Share
-                                  </a>
-                                )}
-                              </Menu.Item>
-                            </div>
-                          </Menu.Items>
-                        </Transition>
-                      </Menu>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </div> */}
-
-            {/* Projects list (only on smallest breakpoint) */}
-            <div className="mt-4">
-              <div className="px-4 sm:px-6">
-                <h2 className="text-gray-500 text-xs font-medium uppercase tracking-wide">Projects</h2>
-              </div>
-              {/* <ul role="list" className="mt-3 border-t border-gray-200 divide-y divide-gray-100">
-                {projects.map((project) => (
-                  <li key={project.id}>
-                    <a href="#" className="group flex items-center justify-between px-4 py-4 hover:bg-gray-50 sm:px-6">
-                      <span className="flex items-center truncate space-x-3">
-                        <span
-                          className={classNames(project.bgColorClass, 'w-2.5 h-2.5 flex-shrink-0 rounded-full')}
-                          aria-hidden="true"
-                        />
-                        <span className="font-medium truncate text-sm leading-6">
-                          {project.title} <span className="truncate font-normal text-gray-500">in {project.team}</span>
-                        </span>
-                      </span>
-                      <ChevronRightIcon
-                        className="ml-4 h-5 w-5 text-gray-400 group-hover:text-gray-500"
-                        aria-hidden="true"
-                      />
-                    </a>
-                  </li>
-                ))}
-              </ul> */}
-            </div>
-
-            {/* Projects table (small breakpoint and up) */}
-            <div className="sm:block">
-              <div className="align-middle inline-block min-w-full border-b border-gray-200">
-            {/* Sidebar Search */}
-            <div className="px-3 mt-5">
-              <label htmlFor="search" className="sr-only">
-                Search
-              </label>
-              <div className="mt-1 relative rounded-md shadow-sm">
-                <div
-                  className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
-                  aria-hidden="true"
-                >
-                  <SearchIcon className="mr-3 h-4 w-4 text-gray-400" aria-hidden="true" />
-                </div>
-                <input
-                  type="text"
-                  name="search"
-                  id="search"
-                  className="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-9 sm:text-sm border-gray-300 rounded-md"
-                  placeholder="Search"
-                />
-              </div>
-            </div>
-               <PROJECT />
-               <PROJECT />
-               <PROJECT />
-              </div>
-            </div>
-          </main>
         </div>
       </div>
     </>

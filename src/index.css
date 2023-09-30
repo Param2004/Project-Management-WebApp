@@ -2,6 +2,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 *,
 *::before,
 *::after {
@@ -13,20 +14,14 @@
 @layer components {
     .top-navigation {
       @apply flex flex-row items-center justify-evenly 
-      bg-transparent bg-opacity-90 
-       h-16 
-      mx-5 
+      bg-transparent bg-opacity-90 h-16 mx-5 
     }
 
     .top-navigation-icon {
-      @apply mx-3
-      transition duration-300 ease-in-out 
-      cursor-pointer;
+      @apply mx-3 transition duration-300
+      ease-in-out cursor-pointer;
     }
 }
-
-
-
 
 ::-webkit-scrollbar {
     background-color: transparent;

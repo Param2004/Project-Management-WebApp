@@ -1,4 +1,5 @@
-import TB from './themeBtn';
+// import TB from './themeBtn';
+import AT from './AccType'
 
 export default function Example() {
     return (
@@ -9,10 +10,11 @@ export default function Example() {
           </div>
           <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
           <div className='flex justify-center'>
-            <TB />
+            {/* <TB /> */}
           </div>
             <div className="bg-white dark:bg-black py-8 px-4 shadow-2xl sm:rounded-lg sm:px-10">
-              <form className="space-y-6" action="#" method="POST">
+              <AT />
+              <form className="space-y-6 mt-4" action="#" method="POST">
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium dark:text-gray-300 text-gray-700">
                     Email address

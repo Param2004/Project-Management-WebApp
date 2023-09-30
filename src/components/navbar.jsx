@@ -51,9 +51,9 @@ export default function Example() {
                   </a>
                 </div>
               </div>
-              <div className='top-navigation'>
-                <ThemeIcon />
-              </div>
+              {/* <div className='top-navigation'>
+                <TB />
+              </div> */}
               <div className="flex-1 flex items-center justify-center px-2 lg:ml-6 lg:justify-end">
                 <div className="max-w-lg w-full lg:max-w-xs">
                   <label htmlFor="search" className="sr-only">

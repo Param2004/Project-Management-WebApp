@@ -1,83 +1,69 @@
-import '../css/tag.css'
-import React from 'react';
-const Tag = (props) => <span className="tag" {...props} />;
-const Delete = (props) => <button className="delete" {...props} />;
-const Help = (props) => <span className="help" {...props} />;
+import { useState } from 'react';
+import { TechnologyTags } from './techstack';
+import './style.css';
+import { WithContext as ReactTags } from 'react-tag-input';
 
-class TagsInput extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      newTag: ""
-    };
+const suggestions = TechnologyTags.map((tag) => {
+  return {
+    id: tag,
+    text: tag,
+  };
+});
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleKeyDown = this.handleKeyDown.bind(this);
-    this.handleRemoveTag = this.handleRemoveTag.bind(this);
-  }
+const KeyCodes = {
+  comma: 188,
+  enter: 13,
+};
 
-  handleChange(e) {
-    this.setState({ newTag: e.target.value });
-  }
+const delimiters = [KeyCodes.comma, KeyCodes.enter];
 
-  handleKeyDown(e) {
-    if (e.keyCode === 13 && e.target.value !== "") {
-      let newTag = this.state.newTag.trim();
+export default () => {
+  const [tags, setTags] = useState([
+    { id: 'Python', text: 'Python' },
+    { id: 'Java', text: 'Java' },
+    { id: 'C++', text: 'C++' },
+    { id: 'JavaScript', text: 'JavaScript' },
+  ]);
 
-      if (this.props.value.indexOf(newTag) === -1) {
-        this.props.value.push(newTag);
-        this.setState({ newTag: "" });
-      }
-      e.target.value = "";
-    }
-  }
+  const handleDelete = (i) => {
+    setTags(tags.filter((tag, index) => index !== i));
+  };
 
-  handleRemoveTag(e) {
-    let tag = e.target.parentNode.textContent.trim();
-    let index = this.props.value.indexOf(tag);
-    this.props.value.splice(index, 1);
-    this.setState({ newTag: "" });
-  }
+  const handleAddition = (tag) => {
+    setTags([...tags, tag]);
+  };
 
-  render() {
-    return (
+  const handleDrag = (tag, currPos, newPos) => {
+    const newTags = tags.slice();
+
+    newTags.splice(currPos, 1);
+    newTags.splice(newPos, 0, tag);
+
+    // re-render
+    setTags(newTags);
+  };
+
+  const handleTagClick = (index) => {
+    console.log('The tag at index ' + index + ' was clicked');
+  };
+
+  return (
+    <div className="app">
+      <h1> TechStack used </h1>
       <div>
-        <div className="tags-input">
-          {this.props.value.map((tag, index) => (
-            <Tag>
-              {tag}
-              <Delete onClick={this.handleRemoveTag} />
-            </Tag>
-          ))}
-          <input
-            type="text"
-            onChange={this.handleChange}
-            onKeyDown={this.handleKeyDown}
-          />
-        </div>
-        <Help>hit 'Enter' to add new tags</Help>
+        <ReactTags
+          tags={tags}
+          suggestions={suggestions}
+          delimiters={delimiters}
+          handleDelete={handleDelete}
+          handleAddition={handleAddition}
+          handleDrag={handleDrag}
+          handleTagClick={handleTagClick}
+          inputFieldPosition="bottom"
+          autocomplete
+          editable
+        />
       </div>
-    );
-  }
-}
-
-class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      tags: ["javascript", "react"]
-    };
-  }
-
-  handleTagsChange(tags) {
-    this.setState({ tags: tags });
-  }
-
-  render() {
-    return (
-      <TagsInput value={this.state.tags} onChange={this.handleTagsChange} />
-    );
-  }
-}
-
-export default App;
+    </div>
+  );
+};

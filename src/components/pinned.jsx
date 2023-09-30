@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { Fragment, useState } from 'react'
 import { Dialog, Menu, Transition } from '@headlessui/react'
 import { HomeIcon, MenuAlt1Icon, XIcon } from '@heroicons/react/outline'
-import { SearchIcon, SelectorIcon } from '@heroicons/react/solid'
+import { ChevronRightIcon, SearchIcon, SelectorIcon } from '@heroicons/react/solid'
 import { BsPinAngleFill } from 'react-icons/bs';
 import PROJECT from './project';
 
@@ -105,7 +105,7 @@ export default function Example() {
           {/* Sidebar component, swap this element with another sidebar if you like */}
           <div className="mt-6 h-0 flex-1 flex flex-col overflow-y-auto">
             {/* User account dropdown */}
-            <Menu as="div" className="px-3 relative mt-4 inline-block text-left">
+            <Menu as="div" className="px-3 relative inline-block text-left">
               <div>
                 <Menu.Button className="group w-full bg-gray-100 rounded-md px-3.5 py-2 text-sm text-left font-medium text-gray-700 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-purple-500">
                   <span className="flex w-full justify-between items-center">
@@ -140,15 +140,15 @@ export default function Example() {
                   <div className="py-1">
                     <Menu.Item>
                       {({ active }) => (
-                        <Link
-                          to="/profile"
+                        <a
+                          href="#"
                           className={classNames(
                             active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                             'block px-4 py-2 text-sm'
                           )}
                         >
                           View profile
-                        </Link>
+                        </a>
                       )}
                     </Menu.Item>
                     
@@ -161,15 +161,15 @@ export default function Example() {
                   <div className="py-1">
                     <Menu.Item>
                       {({ active }) => (
-                        <Link
-                          to="/"
+                        <a
+                          href="#"
                           className={classNames(
                             active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                             'block px-4 py-2 text-sm'
                           )}
                         >
                           Logout
-                        </Link>
+                        </a>
                       )}
                     </Menu.Item>
                   </div>
@@ -261,15 +261,15 @@ export default function Example() {
                       <div className="py-1">
                         <Menu.Item>
                           {({ active }) => (
-                            <Link
-                              to="/profile"
+                            <a
+                              href="#"
                               className={classNames(
                                 active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                                 'block px-4 py-2 text-sm'
                               )}
                             >
                               View profile
-                            </Link>
+                            </a>
                           )}
                         </Menu.Item>
                         
@@ -282,15 +282,15 @@ export default function Example() {
                       <div className="py-1">
                         <Menu.Item>
                           {({ active }) => (
-                            <Link
-                              to="/"
+                            <a
+                              href="#"
                               className={classNames(
                                 active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                                 'block px-4 py-2 text-sm'
                               )}
                             >
                               Logout
-                            </Link>
+                            </a>
                           )}
                         </Menu.Item>
                       </div>

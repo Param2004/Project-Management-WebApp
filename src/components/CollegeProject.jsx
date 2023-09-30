@@ -1,14 +1,13 @@
-import { Link } from 'react-router-dom'
 import { Fragment, useState } from 'react'
 import { Dialog, Menu, Transition } from '@headlessui/react'
 import { HomeIcon, MenuAlt1Icon, XIcon } from '@heroicons/react/outline'
-import { SearchIcon, SelectorIcon } from '@heroicons/react/solid'
+import { ChevronRightIcon, SearchIcon, SelectorIcon } from '@heroicons/react/solid'
 import { BsPinAngleFill } from 'react-icons/bs';
 import PROJECT from './project';
 
 const navigation = [
-  { name: 'Home', to: '/user-dashboard', icon: HomeIcon, current: true },
-  { name: 'Pinned Projects', to: '/pinned', icon: BsPinAngleFill, current: false },
+  { name: 'Home', href: '#', icon: HomeIcon, current: true },
+  { name: 'College Projects', href: '#', icon: BsPinAngleFill, current: false },
 ]
 
 function classNames(...classes) {
@@ -105,7 +104,7 @@ export default function Example() {
           {/* Sidebar component, swap this element with another sidebar if you like */}
           <div className="mt-6 h-0 flex-1 flex flex-col overflow-y-auto">
             {/* User account dropdown */}
-            <Menu as="div" className="px-3 relative mt-4 inline-block text-left">
+            <Menu as="div" className="px-3 relative inline-block text-left">
               <div>
                 <Menu.Button className="group w-full bg-gray-100 rounded-md px-3.5 py-2 text-sm text-left font-medium text-gray-700 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-purple-500">
                   <span className="flex w-full justify-between items-center">
@@ -140,36 +139,45 @@ export default function Example() {
                   <div className="py-1">
                     <Menu.Item>
                       {({ active }) => (
-                        <Link
-                          to="/profile"
+                        <a
+                          href="#"
                           className={classNames(
                             active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                             'block px-4 py-2 text-sm'
                           )}
                         >
                           View profile
-                        </Link>
+                        </a>
                       )}
                     </Menu.Item>
                     
-                   
+                    <Menu.Item>
+                      {({ active }) => (
+                        <a
+                          href="#"
+                          className={classNames(
+                            active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                            'block px-4 py-2 text-sm'
+                          )}
+                        >
+                          Notifications
+                        </a>
+                      )}
+                    </Menu.Item>
                   </div>
-                  <div className="py-1">
-                    
-                   
-                  </div>
+                  
                   <div className="py-1">
                     <Menu.Item>
                       {({ active }) => (
-                        <Link
-                          to="/"
+                        <a
+                          href="#"
                           className={classNames(
                             active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                             'block px-4 py-2 text-sm'
                           )}
                         >
                           Logout
-                        </Link>
+                        </a>
                       )}
                     </Menu.Item>
                   </div>
@@ -180,9 +188,9 @@ export default function Example() {
             <nav className="px-3 mt-6">
               <div className="space-y-1">
                 {navigation.map((item) => (
-                  <Link
+                  <a
                     key={item.name}
-                    to={item.to}
+                    href={item.href}
                     className={classNames(
                       item.current ? 'bg-gray-200 text-gray-900' : 'text-gray-700 hover:text-gray-900 hover:bg-gray-50',
                       'group flex items-center px-2 py-2 text-sm font-medium rounded-md'
@@ -197,7 +205,7 @@ export default function Example() {
                       aria-hidden="true"
                     />
                     {item.name}
-                  </Link>
+                  </a>
                 ))}
               </div>
             </nav>
@@ -261,36 +269,45 @@ export default function Example() {
                       <div className="py-1">
                         <Menu.Item>
                           {({ active }) => (
-                            <Link
-                              to="/profile"
+                            <a
+                              href="#"
                               className={classNames(
                                 active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                                 'block px-4 py-2 text-sm'
                               )}
                             >
                               View profile
-                            </Link>
+                            </a>
                           )}
                         </Menu.Item>
                         
-                        
+                        <Menu.Item>
+                          {({ active }) => (
+                            <a
+                              href="#"
+                              className={classNames(
+                                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                                'block px-4 py-2 text-sm'
+                              )}
+                            >
+                              Notifications
+                            </a>
+                          )}
+                        </Menu.Item>
                       </div>
-                      <div className="py-1">
-                        
-                        
-                      </div>
+                      
                       <div className="py-1">
                         <Menu.Item>
                           {({ active }) => (
-                            <Link
-                              to="/"
+                            <a
+                              href="#"
                               className={classNames(
                                 active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                                 'block px-4 py-2 text-sm'
                               )}
                             >
                               Logout
-                            </Link>
+                            </a>
                           )}
                         </Menu.Item>
                       </div>
@@ -302,7 +319,20 @@ export default function Example() {
           </div>
           <main className="flex-1 bg-white">
             {/* Page title & actions */}
-            
+            <div className="border-b border-gray-200 px-4 py-4 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-8">
+              <div className="flex-1 min-w-0">
+                <h1 className="text-lg font-medium leading-6 text-gray-900 sm:truncate">College Projects</h1>
+              </div>
+              <div className="mt-4 flex sm:mt-0 sm:ml-4">
+               
+                <button
+                  type="button"
+                  className="order-0 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 sm:order-1 sm:ml-3"
+                >
+                  + Add Project
+                </button>
+              </div>
+            </div>
             {/* Pinned projects */}
             {/* <div className="px-4 mt-6 sm:px-6 lg:px-8">
               <h2 className="text-gray-500 text-xs font-medium uppercase tracking-wide">Pinned Projects</h2>

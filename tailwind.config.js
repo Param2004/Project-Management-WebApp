@@ -1,5 +1,4 @@
 /** @type {import('tailwindcss').Config} */
-
 const colors = require('tailwindcss/colors')
 
 export default {
@@ -11,6 +10,8 @@ export default {
   theme: {
     extend: {
       colors: {
+        'stone': colors.stone,
+        teal: colors.teal,
         gray: {
           900: '#202225',
           800: '#2f3136',

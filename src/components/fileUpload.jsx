@@ -1,6 +1,6 @@
 import React, { useState } from "https://cdn.skypack.dev/react@17.0.1";
 import shortid from "https://cdn.skypack.dev/shortid@2.2.16";
-import '../css/upload.css'
+
 
 
 const upload = () => {

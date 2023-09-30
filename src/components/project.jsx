@@ -1,3 +1,6 @@
+
+import { Link } from 'react-router-dom'
+
 function taging(post){
 return <div className="text-xs my-1 mx-1 w-fit flex flex-row font-bold leading-sm uppercase px-3 bg-blue-200 text-blue-700 rounded-full">
 {post}
@@ -6,7 +9,7 @@ return <div className="text-xs my-1 mx-1 w-fit flex flex-row font-bold leading-s
 const posts = [
     {
       title: 'Boost your conversion rate',
-      href: '#',
+      href: './user-description',
       category: { name: 'Article', href: '#' },
       description:
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto accusantium praesentium eius, ut atque fuga culpa, similique sequi cum eos quis dolorum.',
@@ -25,7 +28,7 @@ const posts = [
     },
     {
       title: 'How to use search engine optimization to drive sales',
-      href: '#',
+      href: './user-description',
       category: { name: 'Video', href: '#' },
       description:
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit facilis asperiores porro quaerat doloribus, eveniet dolore. Adipisci tempora aut inventore optio animi., tempore temporibus quo laudantium.',
@@ -44,7 +47,7 @@ const posts = [
     },
     {
       title: 'Improve your customer experience',
-      href: '#',
+      href: './user-description',
       category: { name: 'Case Study', href: '#' },
       description:
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint harum rerum voluptatem quo recusandae magni placeat saepe molestiae, sed excepturi cumque corporis perferendis hic.',
@@ -79,14 +82,14 @@ const posts = [
                 <div className="flex-1 bg-white p-6 flex flex-col justify-between">
                   <div className="flex-1">
                     <p className="text-sm font-medium text-indigo-600">
-                      <a href={post.category.href} className="hover:underline">
+                      <Link to={post.href} className="hover:underline">
                         {post.category.name}
-                      </a>
+                      </Link>
                     </p>
-                    <a href={post.href} className="block mt-2">
+                    <Link to={post.href} className="block mt-2">
                       <p className="text-xl font-semibold text-gray-900">{post.title}</p>
                       <p className="mt-3 text-base text-gray-500">{post.description}</p>
-                    </a>
+                    </Link>
                     </div>
                     <div className="flex flex-row">
                     {post.tags.map(taging)}
@@ -94,16 +97,16 @@ const posts = [
                   
                   <div className="mt-6 flex items-center">
                     <div className="flex-shrink-0">
-                      <a href={post.author.href}>
+                      <Link to={post.href}>
                         <span className="sr-only">{post.author.name}</span>
                         <img className="h-10 w-10 rounded-full" src={post.author.imageUrl} alt="" />
-                      </a>
+                      </Link>
                     </div>
                     <div className="ml-3">
                       <p className="text-sm font-medium text-gray-900">
-                        <a href={post.author.href} className="hover:underline">
+                        <Link to={post.href} className="hover:underline">
                           {post.author.name}
-                        </a>
+                        </Link>
                       </p>
                       <div className="flex space-x-1 text-sm text-gray-500">
                         <time dateTime={post.datetime}>{post.date}</time>
