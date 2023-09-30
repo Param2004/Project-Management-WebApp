@@ -11,7 +11,7 @@ import {
 } from '@heroicons/react/outline'
 import { ChevronDownIcon } from '@heroicons/react/solid'
 // import TB from './themeBtn'
-import Footer from './footer'
+import { Link } from 'react-router-dom'
 
 const solutions = [
   {
@@ -46,9 +46,9 @@ export default function Example() {
         <Popover className="relative bg-white dark:bg-black">
           <div className="flex justify-between items-center max-w-7xl mx-auto px-4 py-3 sm:px-6 md:justify-start md:space-x-10 lg:px-8">
             <div className="flex justify-start lg:w-0 lg:flex-1">
-              <a href='' className='text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-800'>
+              <Link to='' className='text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-800'>
                 SIH-2023
-              </a>
+              </Link>
             </div>
             <div className="-mr-2 -my-2 md:hidden">
               <Popover.Button className="bg-transparent rounded-md p-4 inline-flex items-center justify-between text-gray-500 hover:text-gray-800 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
@@ -111,15 +111,12 @@ export default function Example() {
                 )}
               </Popover>
 
-              <Link to='/user-dashboard' className="text-base font-medium text-gray-500 hover:text-indigo-500">
-                Trending
-              </Link>
-              <Link to="/college-dashboard" className="text-base font-medium text-gray-500 hover:text-indigo-500">
-                About
-              </Link>
-              <Link to="/contact" className="text-base font-medium text-gray-500 hover:text-indigo-500">
-                Contact
-              </Link>
+              <a href='/home' className="text-base font-medium text-gray-500 hover:text-indigo-500">
+                User Guide
+              </a>
+              <a href="" className="text-base font-medium text-gray-500 hover:text-indigo-500">
+                About Us
+              </a>
             </Popover.Group>
             {/* <div className='top-navigation'>
               <TB />
@@ -128,8 +125,8 @@ export default function Example() {
               <Link to='/signin' className="whitespace-nowrap text-base font-bold text-gray-600 hover:text-purple-800">
                 Sign in
               </Link>
-              <Link
-                to='/signup'
+              <Link>
+                href='/signup'
                 className="ml-8 whitespace-nowrap inline-flex items-center justify-center bg-gradient-to-r from-purple-600 to-indigo-600 bg-origin-border px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white hover:from-purple-700 hover:to-indigo-700">
                 Sign up
               </Link>
@@ -235,12 +232,11 @@ export default function Example() {
                 </h1>
                 <div className="mt-10 max-w-sm mx-auto sm:max-w-none sm:flex sm:justify-center">
                   <div className="space-y-4 sm:space-y-0 sm:mx-auto sm:inline-grid sm:gap-5">
-                    <a
-                      href="/signup"
+                    <Link to="/signup"
                       className="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-indigo-700 bg-white hover:bg-white  sm:px-8"
                     >
                       Get started
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -248,7 +244,26 @@ export default function Example() {
           </div>
         </div>
       </main>
-      <Footer />
+
+      <footer className="bg-gray-50  dark:bg-black" aria-labelledby="footer-heading">
+        <h2 id="footer-heading" className="sr-only">
+          Footer
+        </h2>
+       
+          <div className="mt-12 border-t border-gray-600 dark:border-gray-200 pt-8 md:flex md:items-center md:justify-between lg:mt-16">
+            <div className="flex space-x-6 md:order-2">
+              {footerNavigation.social.map((item) => (
+                <a key={item.name} href={item.href} className="text-gray-600 dark:text-gray-400 hover:text-gray-500">
+                  <span className="sr-only">{item.name}</span>
+                  <item.icon className="h-6 w-6" aria-hidden="true" />
+                </a>
+              ))}
+            </div>
+            <p className="mt-8 text-base text-gray-600 dark:text-gray-400 md:mt-0 md:order-1">
+              &copy; 2020 Workflow, Inc. All rights reserved.
+            </p>
+          </div>
+      </footer>
     </div>
   )
 }
