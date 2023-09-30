@@ -46,9 +46,9 @@ export default function Example() {
         <Popover className="relative bg-white dark:bg-black">
           <div className="flex justify-between items-center max-w-7xl mx-auto px-4 py-3 sm:px-6 md:justify-start md:space-x-10 lg:px-8">
             <div className="flex justify-start lg:w-0 lg:flex-1">
-              <Link to='' className='text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-800'>
+              <a href='' className='text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-800'>
                 SIH-2023
-              </Link>
+              </a>
             </div>
             <div className="-mr-2 -my-2 md:hidden">
               <Popover.Button className="bg-transparent rounded-md p-4 inline-flex items-center justify-between text-gray-500 hover:text-gray-800 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
@@ -111,12 +111,15 @@ export default function Example() {
                 )}
               </Popover>
 
-              <a href='/home' className="text-base font-medium text-gray-500 hover:text-indigo-500">
-                User Guide
-              </a>
-              <a href="" className="text-base font-medium text-gray-500 hover:text-indigo-500">
-                About Us
-              </a>
+              <Link to='/user-dashboard' className="text-base font-medium text-gray-500 hover:text-indigo-500">
+                Trending
+              </Link>
+              <Link to="/college-dashboard" className="text-base font-medium text-gray-500 hover:text-indigo-500">
+                About
+              </Link>
+              <Link to="/contact" className="text-base font-medium text-gray-500 hover:text-indigo-500">
+                Contact
+              </Link>
             </Popover.Group>
             {/* <div className='top-navigation'>
               <TB />
@@ -126,7 +129,7 @@ export default function Example() {
                 Sign in
               </Link>
               <Link
-                href='/signup'
+                to='/signup'
                 className="ml-8 whitespace-nowrap inline-flex items-center justify-center bg-gradient-to-r from-purple-600 to-indigo-600 bg-origin-border px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white hover:from-purple-700 hover:to-indigo-700">
                 Sign up
               </Link>
@@ -232,11 +235,12 @@ export default function Example() {
                 </h1>
                 <div className="mt-10 max-w-sm mx-auto sm:max-w-none sm:flex sm:justify-center">
                   <div className="space-y-4 sm:space-y-0 sm:mx-auto sm:inline-grid sm:gap-5">
-                    <Link to="/signup"
+                    <a
+                      href="/signup"
                       className="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-indigo-700 bg-white hover:bg-white  sm:px-8"
                     >
                       Get started
-                    </Link>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -244,7 +248,7 @@ export default function Example() {
           </div>
         </div>
       </main>
-    <Footer />
+      <Footer />
     </div>
   )
 }
