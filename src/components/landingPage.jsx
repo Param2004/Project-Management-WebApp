@@ -11,7 +11,7 @@ import {
 } from '@heroicons/react/outline'
 import { ChevronDownIcon } from '@heroicons/react/solid'
 // import TB from './themeBtn'
-import { Link } from 'react-router-dom'
+import Footer from './footer'
 
 const solutions = [
   {
@@ -244,26 +244,7 @@ export default function Example() {
           </div>
         </div>
       </main>
-
-      <footer className="bg-gray-50  dark:bg-black" aria-labelledby="footer-heading">
-        <h2 id="footer-heading" className="sr-only">
-          Footer
-        </h2>
-       
-          <div className="mt-12 border-t border-gray-600 dark:border-gray-200 pt-8 md:flex md:items-center md:justify-between lg:mt-16">
-            <div className="flex space-x-6 md:order-2">
-              {footerNavigation.social.map((item) => (
-                <a key={item.name} href={item.href} className="text-gray-600 dark:text-gray-400 hover:text-gray-500">
-                  <span className="sr-only">{item.name}</span>
-                  <item.icon className="h-6 w-6" aria-hidden="true" />
-                </a>
-              ))}
-            </div>
-            <p className="mt-8 text-base text-gray-600 dark:text-gray-400 md:mt-0 md:order-1">
-              &copy; 2020 Workflow, Inc. All rights reserved.
-            </p>
-          </div>
-      </footer>
+    <Footer />
     </div>
   )
 }
