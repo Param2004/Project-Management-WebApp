@@ -11,11 +11,13 @@ import CollegeDescript from "./components/descrip-auth"
 import PinnedProject from "./components/pinned"
 import {BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import './index.css'
+import { ProvidePosts } from './context/Posts';
 
 
 export default function App() {
   return (
     <Router>
+    <ProvidePosts>
       <Routes>
         <Route path="/" element={<LP />} />
         <Route path="/contact" element={<Contact />} />
@@ -29,6 +31,7 @@ export default function App() {
         <Route path="/college-description" element={<CollegeDescript />} />
         <Route path="/pinned" element={<PinnedProject />} />
       </Routes>
+      </ProvidePosts>
     </Router>
   )
 }
