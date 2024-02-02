@@ -59,7 +59,7 @@ app.post('/process', async (req, res) => {
             const file2 = matches[2];
             const similarity = parseFloat(matches[3]);
 
-            if(similarity >= 70)
+            if(similarity >= 50)
             flag = 1;
         }
     });

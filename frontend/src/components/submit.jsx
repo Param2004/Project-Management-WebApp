@@ -71,7 +71,7 @@ export default function Submit() {
       const combinedContent = `${textArea1} ${textArea2}`;
 
 
-      axios.post('https://sih-cki9.onrender.com/process', { content: combinedContent }, {
+      axios.post('https://sih-server-caxs.onrender.com/process', { content: combinedContent }, {
         headers: {
             'Content-Type': 'application/json',
         },

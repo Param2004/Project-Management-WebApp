@@ -1,5 +1,7 @@
 version: 1
+pythonVersion: 3.7
 preBuildCommand:
+  - export PYTHONPATH=/opt/render/.local/bin
   - pip install -r requirements.txt
 buildCommand:
   - npm install
