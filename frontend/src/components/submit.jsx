@@ -84,7 +84,7 @@ export default function Submit() {
       //  result = (`"${response.data.status}"`);
       result = response.data;
       if(result)
-      alert('your content is Plagiarised');
+      alert('The Project already exist, do not copy another\'s content !!!');
       else 
       {
         addPost(post);
