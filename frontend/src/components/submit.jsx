@@ -1,11 +1,12 @@
 import Tag from './tag'
-import { Fragment, useState } from 'react'
+import { Fragment, useState} from 'react'
 import { useNavigate } from 'react-router-dom';
 import { ProvidePosts, usePosts } from '../context/Posts';
 import { Dialog, Menu, Transition } from '@headlessui/react'
 import { HomeIcon, MenuAlt1Icon, XIcon } from '@heroicons/react/outline'
 import { SearchIcon, SelectorIcon } from '@heroicons/react/solid'
 import { BsPinAngleFill } from 'react-icons/bs';
+import { RingLoader } from 'react-spinners';
 import axios from 'axios';
 
 
@@ -13,6 +14,10 @@ const navigation = [
   { name: 'Home', href: '#', icon: HomeIcon, current: true },
   { name: 'Pinned Projects', href: '#', icon: BsPinAngleFill, current: false },
 ]
+
+const customLoaderStyles = {
+  margin: '30% 40%',
+};
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -27,8 +32,11 @@ export default function Submit() {
 
   const [selectedFile, setSelectedFile] = useState(null);
 
+  const [loading, setLoading] = useState(false);
+
   const navigateTo = useNavigate();
   const { addPost } = usePosts();
+
 
   const [post, setPost] = useState({
     title: '',
@@ -59,22 +67,18 @@ export default function Submit() {
     });
   }
 
-  function submitPost(event) {
+  function submitPost(e) {
+    setLoading(true);
+    e.preventDefault();
 
     let result = "";
-
-    const combineAndSave = () => {
-      const textArea1 = document.getElementById('title').value;
-      const textArea2 = document.getElementById('description').value;
-
-      // Combine content
-      const combinedContent = `${textArea1} ${textArea2}`;
-
-
-      axios.post('https://sih-server-f0un.onrender.com/process', { content: combinedContent }, {
-        headers: {
-            'Content-Type': 'application/json',
-        },
+    const textArea1 = document.getElementById('title').value;
+    const textArea2 = document.getElementById('description').value;
+    const combinedContent = `${textArea1} ${textArea2}`;
+    axios.post('https://sih-server-f0un.onrender.com/process', { content: combinedContent }, {
+      headers: {
+          'Content-Type': 'application/json',
+      },
     })
     .then(response => {
       //  result = (`"${response.data.status}"`);
@@ -89,17 +93,13 @@ export default function Submit() {
           description: "",
   
         });
-        event.preventDefault();
         navigateTo('/college-dashboard');
       }
     })
     .catch(error => {
         console.error(error);
-    });
-  };
-
-  combineAndSave();
-
+    })
+    .finally(() => setLoading(false));
     
   }
 
@@ -420,9 +420,11 @@ export default function Submit() {
             </div>
           </div>
 
-
           
+          <RingLoader color="purple" cssOverride={customLoaderStyles} loading={loading} size={100} />
+          {!loading && (
           <main className="flex-1 bg-white">
+
             <div className="border-b  border-gray-200 px-4 py-4 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-8">
               <div className="flex-1 min-w-0">
                 <h1 className="text-3xl font-medium leading-6 py-2 text-gray-900 sm:truncate">Project Submission</h1>
@@ -434,7 +436,7 @@ export default function Submit() {
               <div className="md:grid">
                 <div className="mt-5 md:mt-0 md:col-span-2">
 
-                  <form className="space-y-6" action='' method="POST">
+                  <form className="space-y-6" onSubmit={submitPost} >
                     <div className="col-span-6 sm:col-span-3">
                       <label htmlFor="title" className="block text-sm font-medium text-gray-700">
                         Project Title
@@ -443,6 +445,7 @@ export default function Submit() {
                         type="text"
                         name="title"
                         id="title"
+                        required
                         value={post.title}
                         onChange={handleChange}
                         className="mt-1 shadow-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
@@ -505,6 +508,7 @@ export default function Submit() {
                         <textarea
                           id="description"
                           name="description"
+                          required
                           onChange={handleChange}
                           rows={10}
                           value={post.description}
@@ -519,18 +523,19 @@ export default function Submit() {
 
                     <div className="m-8 flex justify-center sm:mt-0 sm:ml-4">
                       <button
-                        type="button"
-                        onClick={submitPost}
+                        type="submit"
                         className="order-0 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 sm:order-1 sm:ml-3"
                       >
                       Submit
                       </button>
                     </div>
                   </form>
+
                 </div>
               </div>
             </div>
           </main>
+          )}
         </div>
       </div>
     </ProvidePosts>

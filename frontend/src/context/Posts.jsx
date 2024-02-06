@@ -61,7 +61,7 @@ export function ProvidePosts({ children }) {
   ]);
 
   const addPost = (newPost) => {
-    setPosts((prevPosts) => [...prevPosts, newPost]);
+    setPosts((prevPosts) => [newPost, ...prevPosts]);
   };
 
   return (
