@@ -16,7 +16,7 @@ const navigation = [
 ]
 
 const customLoaderStyles = {
-  margin: '30% 40%',
+  margin: '16rem 40%',
 };
 
 function classNames(...classes) {
