@@ -25,7 +25,7 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.11.0",
     "react-router-dom": "^6.15.0",
-    "react-spinner": "^0.2.7", 
+    "react-spinner": "^0.2.7",
     "react-spinners": "^0.13.8",
     "react-tag-input": "^6.8.1"
   },

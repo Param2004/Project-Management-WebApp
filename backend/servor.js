@@ -57,7 +57,7 @@ app.post('/process', async (req, res) => {
             // const file2 = matches[2];
             const similarity = parseFloat(matches[3]);
 
-            if(similarity >= 70){
+            if(similarity >= 30){
                 flag = 1;
                 fs.unlink(filename, (err) => {
                   if (err) {
